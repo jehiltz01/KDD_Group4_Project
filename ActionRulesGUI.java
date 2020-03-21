@@ -4,6 +4,10 @@ import javax.swing.*;
 import javax.swing.filechooser.*;
 import java.awt.Dimension;
 
+/**
+ * GUI For the Action Rules Program
+ * @author Jane Hiltz (jhiltz3)
+ */
 class ActionRulesGUI {
 
     //Label for the data file the user selects
@@ -24,7 +28,13 @@ class ActionRulesGUI {
     //Delimiter
     public static String delimiter;
 
+    /**
+     * Main method for the ActionRulesGUI program
+     * It create the GUI with panels and and a mix of box and flow layouts
+     * @param args
+     */
     public static void main(String args[]){
+
         //Main Pannel
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
@@ -69,8 +79,6 @@ class ActionRulesGUI {
         mainPanel.add(dataTitlePanel);
         mainPanel.add(dataPanel);
         mainPanel.add(dataLabelPanel);
-
-
 
 
         /// Names File Picker ///
@@ -126,7 +134,6 @@ class ActionRulesGUI {
             }
         });
         delimiterPanel.add(delimiterComboBox);
-        //DelimiterComboBox.setSeletedIndex(2);
 
         mainPanel.add(delimiterTitlePanel);
         mainPanel.add(delimiterPanel);
@@ -145,10 +152,10 @@ class ActionRulesGUI {
         JPanel generatorPanel = new JPanel();
         generatorPanel.setMaximumSize(new Dimension(600, 40));
         JButton generatorButton = new JButton("Calculate Action Rules");
-        //generatorButton.setEnabled(false);
         generatorButton.addActionListener(gComd);
         generatorPanel.add(generatorButton);
 
+        //Generator Label
         JPanel generatorLablePanel = new JPanel();
         generatorLablePanel.setMaximumSize(new Dimension(600, 40));
         generatorLabel = new JLabel();
@@ -271,7 +278,6 @@ class ActionRulesGUI {
             String com = evt.getActionCommand();
 
             if(com.equals("Calculate Action Rules")){
-
                 if(dataFileLoaded && nameFileLoaded && delimiter != null){
                     System.out.println("GENERATE RULES");
                     System.out.println("Delimiter is: " + delimiter);
