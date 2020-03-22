@@ -10,6 +10,9 @@ import java.awt.Dimension;
  */
 class ActionRulesGUI {
 
+    //ActionRulesExtractor Object
+    public static ActionRulesExtractor acExtractor = new ActionRulesExtractor();
+
     //Label for the data file the user selects
     public static JLabel dataFileLabel;
     //Label for the name file the user selects
@@ -282,6 +285,8 @@ class ActionRulesGUI {
                     System.out.println("GENERATE RULES");
                     System.out.println("Delimiter is: " + delimiter);
                     generatorLabel.setText("Calculating...");
+                    //Call parse input on the ActionRulesExtractor object
+                    acExtractor.parseInput(dataFile, nameFile, delimiter);
                 } else {
                     generatorLabel.setText(("Must load all files and select a delimiter."));
                 }
